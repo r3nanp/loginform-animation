@@ -86,6 +86,20 @@
     transform: scale(0.8) translateY(-5rem);
   }
 
+  .strength {
+    display: flex;
+    height: 20px;
+    width: 100%;
+  }
+
+  .bar {
+    margin-right: 5px;
+    height: 100%;
+    width: 25%;
+    transition: box-shadow 500ms;
+    box-shadow: inset 0 20px #1f1f1f;
+  }
+
 </style>
 
 <main>
@@ -113,6 +127,6 @@
       <li>must contain a number</li>
       <li>must contain one of special character</li>
     </ul>
-    
+
   </form>
 </main>
