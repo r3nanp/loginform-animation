@@ -2,6 +2,18 @@
   let strength = 0
   let validations = []
 
+  export function validatePassword(e) {
+    const password = e.target.value
+    validations = [
+      (password.length > 5),
+      (password.search(/[A-Z]/) > -1),
+      (password.search(/[0-9]/) > -1),
+      (password.search(/[$#@!,:;?%&*=+]/) > -1)
+    ]
+
+    strength = validations.reduce((acc, cur) => acc + cur)
+  }
+
 </script>
 
 <style>
