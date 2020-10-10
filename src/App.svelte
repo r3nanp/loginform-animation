@@ -1,5 +1,5 @@
 <script context="module">
-  import Form from './Main.svelte'
+  import Form from './Form.svelte'
 </script>
 
 <style>
@@ -10,9 +10,17 @@
     align-items: center;
     justify-content: center;
   }
+
+  h1 {
+    font-family: 'Roboto';
+    font-weight: 700;
+    text-align: center;
+  }
 </style>
 
 <!-- HTML-->
 <main>
+  <h1>Sign Up</h1>
+
   <Form />
 </main>
