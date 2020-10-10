@@ -1,24 +1,30 @@
 <script>
   let strength = 0
   let validations = []
+  let showPassword = false
 
   function validatePassword(e) {
     const password = e.target.value
 
     validations = [
-      (password.length > 5), 
-      (password.search(/[A-Z]/) > -1), 
-      (password.search(/[0-9]/) > -1), 
-      (password.search(/[$&+,:;=?@#]/) > -1) 
+      password.length > 5,
+      password.search(/[A-Z]/) > -1,
+      password.search(/[0-9]/) > -1,
+      password.search(/[$&+,:;=?@#]/) > -1,
     ]
 
-    strength = validations.reduce((acc, cur) => acc + cur)
+    strength = validations.reduce((acc, cur) => acc + cur, 0)
   }
 </script>
 
 <style>
   form {
     --text-color: #afafaf;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
   }
 
   .field {
@@ -127,12 +133,35 @@
     list-style: none;
     margin: 10px 0;
     padding: 0;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     text-align: left;
+  }
+
+  .toggle-password {
+    position: absolute;
+    cursor: help;
+    font-size: 0.8rem;
+    right: 0.25rem;
+    bottom: 0.5rem;
+  }
+
+  button {
+    margin-top: 2rem;
+    padding: 10px 30px;
+    font-weight: bold;
+    border: 2px solid greenyellow;
+    color: greenyellow;
+    border-radius: 100px;
+    background: transparent;
+    transition: all 1000ms;
+  }
+  button:disabled {
+    border-color: var(--text-color);
+    color: var(--text-color);
   }
 </style>
 
-<form>
+<form on:submit={(e) => e.preventDefault()}>
   <div class="field">
     <input type="email" name="email" class="input" />
     <label for="email" class="label">Email</label>
@@ -140,11 +169,19 @@
 
   <div class="field">
     <input
-      type="password"
+      type={showPassword ? 'text' : 'password'}
       class="input"
       placeholder=""
+      class:valid={strength > 3}
       on:input={validatePassword} />
     <label for="password" class="label">Password</label>
+
+    <span
+      class="toggle-password"
+      on:mouseenter={() => (showPassword = true)}
+      on:mouseleave={() => (showPassword = false)}>
+      {showPassword ? '🙈' : '👁️'}
+    </span>
   </div>
 
   <div class="strength">
@@ -165,4 +202,6 @@
       </li>
     </ul>
   {/if}
+
+  <button disabled={strength < 4}>Sign Up</button>
 </form>
