@@ -1,49 +1,37 @@
 # Login Form Animation 
-My first app using Svelte.
+  My first app using Svelte, it's a form login made in Svelte using Javacript, HTML and CSS.
+
+
+## Technologies
+- Svelte 
+- Javascript
+- HTML
+- CSS
 
 ## Get started
 
 ```
 # Starting the project...
 
-npx degit sveltejs/template svelte-app
-cd svelte-app
+git clone https://github.com/r3nanp/loginform-animation.git
 ```
 
 ```
 # Install the dependencies...
 
-cd svelte-app
-npm install
-```
+cd loginform-animation
 
+yarn or npm install
+```
 
 ```
 # then start
-npm run dev
+yarn dev or npm run dev
 ```
 
-## Building and running in production mode
 
-To create an optimised version of the app:
+### Screenshot 
+  <img src="./.github/screenshot.png">
 
-```bash
-npm run build
-```
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
+### Link 
+[Login Form](https://loginform-animation.vercel.app/)
